@@ -27,6 +27,8 @@ const COMMON = merge([
       ]
     }
   },
+  parts.loadJSX({include:['./src']}),
+  parts.lintJSX({include:['./src']})
 ]);
 
 const PROD = merge([

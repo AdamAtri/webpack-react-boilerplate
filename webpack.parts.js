@@ -49,3 +49,40 @@ exports.extractCSS = ({include, exclude, use} = {}) => {
     plugins: [plugin]
   };
 };
+
+exports.loadJSX = ({include} = { }) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        loaders: ['babel-loader?cacheDirectory'],
+        include: include
+      }
+    ]
+  }
+});
+
+exports.loadIsparta = ({ include } = {}) => ({
+  module: {
+    preLoaders: [
+      {
+        test: /\.(js|jsx)$/,
+        loaders: ['isparta'],
+        include: include
+      }
+    ]
+  }
+});
+
+exports.lintJSX = ({ include } = { }) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        loaders: [ 'eslint-loader' ],
+        include: include
+      }
+    ]
+  }
+});
