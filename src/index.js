@@ -5,5 +5,5 @@ import ReactDOM from 'react-dom';
 
 ReactDOM.render(
   <h1>Hello, AwesomeSauce</h1>,
-  document.getElementById('app-mount')
+  document.getElementById('app-hook')
 );
