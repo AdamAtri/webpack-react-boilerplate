@@ -50,29 +50,21 @@ exports.extractCSS = ({include, exclude, use} = {}) => {
   };
 };
 
-exports.loadJSX = ({include} = { }) => ({
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        loaders: ['babel-loader?cacheDirectory'],
-        include: include
-      }
-    ]
-  }
-});
-
-exports.loadIsparta = ({ include } = {}) => ({
-  module: {
-    preLoaders: [
-      {
-        test: /\.(js|jsx)$/,
-        loaders: ['isparta'],
-        include: include
-      }
-    ]
-  }
-});
+exports.loadJSX = ({include} = { }) => {
+  console.log('LoadJSX')
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          enforce: 'pre',
+          loaders: ['babel-loader?cacheDirectory'],
+          include: include
+        }
+      ]
+    }
+  };
+};
 
 exports.lintJSX = ({ include } = { }) => ({
   module: {
