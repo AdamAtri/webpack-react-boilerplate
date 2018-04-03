@@ -3,7 +3,9 @@ import './css/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import UserCollectionView from './js/components/UserCollectionView';
+
 ReactDOM.render(
-  <h1>Hello, AwesomeSauce</h1>,
+  <UserCollectionView />,
   document.getElementById('app-hook')
 );
